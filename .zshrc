@@ -124,6 +124,12 @@ export LS_COLORS="rs=0:no=00:mi=00:mh=00:ln=01;36:or=01;31:di=01;34:ow=04;01;34:
 
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
+export PATH="$HOME/.cargo/bin/:$PATH"
 export PATH="$HOME/gems/bin:$PATH"
 
 bindkey -s ^f "tmux-sessionizer\n"
+
+xmodmap -e "keycode 110 = Delete NoSymbol Delete"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
