@@ -132,5 +132,3 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 xmodmap -e "keycode 110 = Delete NoSymbol Delete"
 
-# Load Angular CLI autocompletion.
-source <(ng completion script)
