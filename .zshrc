@@ -113,6 +113,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias lsf="lsa | fzf"
+alias nv=nvim
+alias lg=lazygit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -132,3 +134,5 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 xmodmap -e "keycode 110 = Delete NoSymbol Delete"
 
+alias bat=batcat
+alias inv='nvim $(find . | fzf --preview="batcat --color=always {}")'
