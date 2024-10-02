@@ -141,3 +141,6 @@ alias inv='nvim $(find . | fzf --preview="batcat --color=always {}")'
 # and as Ctrl when long-pressed.
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
+
+# Shortcut to open intellij I[d]ea
+bindkey -s ^n "~/intellij-idea/bin/idea.sh\n"
