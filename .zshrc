@@ -115,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 alias lsf="lsa | fzf"
 alias nv=nvim
 alias lg=lazygit
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -132,15 +133,30 @@ export PATH="$HOME/gems/bin:$PATH"
 
 bindkey -s ^f "tmux-sessionizer\n"
 
+# [Key mappings]
+# maps the home key on keychron to delete
 xmodmap -e "keycode 110 = Delete NoSymbol Delete"
+# maps the ctrl to alt on keychron
+xmodmap -e "keycode"
 
 alias bat=batcat
 alias inv='nvim $(find . | fzf --preview="batcat --color=always {}")'
 
-# Remap caps lock to act as Escape when short-pressed
-# and as Ctrl when long-pressed.
-setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape'
-
 # Shortcut to open intellij I[d]ea
 bindkey -s ^n "~/intellij-idea/bin/idea.sh\n"
+export PATH="/home/saurav/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/saurav/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+
+alias yazi='/home/saurav/yazi/target/release/yazi'
+
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
