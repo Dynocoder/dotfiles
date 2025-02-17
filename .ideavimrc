@@ -1,43 +1,223 @@
-" options and mappings that are supported by both Vim and IdeaVim
+" ------------------------------------------
+"" .ideavimrc - Matt Chapman
+
+
+"" Base Settings
+"" ========================================================
+
+set scrolloff=999
+set showmode
+set showcmd
+set visualbell
+
+set smartcase
+set incsearch
+set hlsearch
+
 let mapleader = " "
 set nu
 set relativenumber
 set clipboard+=unnamed
 set ignorecase
 
-if has('ide')
-  " mappings and options that exist only in IdeaVim
-  map <leader><leader> <Action>(GotoFile)
-  map <leader>/ <Action>(FindInPath)
-  map <leader>b <Action>(Switcher)
+" Use system clipboard
+set clipboard+=unnamed
 
-  vnoremap J :m '>+1<CR>gv=gv
-  vnoremap K :m '<-2<CR>gv=gv
-
-  " Harpoon Keymaps
-  nmap <leader>1 :action GotoHarpoon1<cr>
-  nmap <leader>2 :action GotoHarpoon2<cr>
-  nmap <leader>3 :action GotoHarpoon3<cr>
-  nmap <leader>4 :action GotoHarpoon4<cr>
-  nmap <leader>5 :action GotoHarpoon5<cr>
-
-  nmap <leader>hm :action ShowHarpoon<cr>
-  nmap <leader>ha :action AddToHarpoon<cr>
+let mapleader = " "
 
 
-  " Code Actions
+"" Plugin Settings
+"" ========================================================
+
+set surround
+set highlightedyank
+set sneak
+set nerdtree
+
+" Easymotion settings
+set easymotion
+set notimeout
+
+" Which-key settings
+set which-key
+let g:WhichKey_FontSize = 16
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_PrefixColor = "#f335b2"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
+let g:WhichKeyDesc_leader = "<leader> Leader key"
+
+let g:WhichKeyDesc_leader = "<leader>x Open file explorer"
+
+let g:WhichKeyDesc_easymotion = "<leader>j Jump with Easymotion"
+let g:WhichKeyDesc_easymotion_prefix = "<leader><leader>"
+
+let g:WhichKeyDesc_comment = "gcc Comment line"
+
+let g:WhichKeyDesc_fold = "<leader>z Folding"
+let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
+let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
+
+let g:WhichKeyDesc_window = "<leader>w Window splits"
+let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
+let g:WhichKeyDesc_window_split_horizontally = "<leader>wh Split horizontally"
+let g:WhichKeyDesc_window_split_unsplit = "<leader>wu Unsplit"
+let g:WhichKeyDesc_window_split_move_editor = "<leader>wm Move editor to opposite tab group"
 
 
-  " if &ide =~? 'intellij idea'
-  "   if &ide =~? 'community'
-  "     " some mappings and options for IntelliJ IDEA Community Edition
-  "   elseif &ide =~? 'ultimate'
-  "     " some mappings and options for IntelliJ IDEA Ultimate Edition
-  "   endif
-  " elseif &ide =~? 'pycharm'
-  "   " PyCharm specific mappings and options
-  " endif
-else
-  " some mappings for Vim/Neovim
-  nnoremap <leader>f <cmd>Telescope find_files<cr>
-endif
+let g:WhichKeyDesc_display = "<leader>d Display options"
+let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
+let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
+let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
+
+let g:WhichKeyDesc_action= "<leader>a Actions"
+let g:WhichKeyDesc_action_context_menu = "<leader>am Open context menu"
+let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
+
+let g:WhichKeyDesc_file_quickLook = "<leader><leader> Recent files"
+
+let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
+let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
+let g:WhichKeyDesc_file_nav_goto_content = "<leader>fc Search for file content"
+let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
+let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
+
+let g:WhichKeyDesc_close_tab = "<leader>q Close active tab"
+
+let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
+let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
+let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
+let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
+let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
+let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
+let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
+
+let g:WhichKeyDesc_goto = "<leader>g Go to X"
+let g:WhichKeyDesc_goto_declaration = "<leader>gd Go to Definition"
+let g:WhichKeyDesc_goto_type_declaration = "<leader>gy Go to Type Definition"
+let g:WhichKeyDesc_goto_implementation = "<leader>gi Go to Implementation"
+let g:WhichKeyDesc_goto_usages = "<leader>gu Go to Usages"
+let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
+let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
+let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
+
+let g:WhichKeyDesc_git = "<leader>g Git operations"
+let g:WhichKeyDesc_git_commit = "<leader>gc Open Git commit dialog"
+let g:WhichKeyDesc_git_status = "<leader>gs Open Git status dialog"
+let g:WhichKeyDesc_git_branches = "<leader>gb Open Git branches list"
+
+let g:WhichKeyDesc_errors = "<leader>e Error navigation"
+let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
+let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
+
+
+"" Key mappings
+"" ========================================================
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Tab navigation
+nnoremap <A-n> :tabnext<CR>
+nnoremap <A-p> :tabprev<CR>
+
+" Pane navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+" Jump between methods
+nnoremap [[ <Action>(MethodUp)
+nnoremap ]] <Action>(MethodDown)
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Execute macro saved in 'q' register
+nnoremap qj @q
+
+" Popup navigation
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+
+"" Leader commands
+"" ========================================================
+
+
+nmap <leader>2 :action GotoHarpoon2<cr>
+nmap <leader>3 :action GotoHarpoon3<cr>
+nmap <leader>4 :action GotoHarpoon4<cr>
+nmap <leader>5 :action GotoHarpoon5<cr>
+nmap <leader>hm :action ShowHarpoon<cr>
+nmap <leader>ha :action AddToHarpoon<cr>
+
+
+" Comment lines
+nmap gcc <action>(CommentByLineComment)
+vmap gc <action>(CommentByLineComment)<ESC>
+
+" Jump around with easymotion
+nmap <leader>sf <Plug>(easymotion-s)
+
+" Open NERDTree (use q to exit)
+map <leader>x :NERDTreeToggle<CR>
+
+" Folding
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+
+" Window splits
+map <C-v> <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+" Display options
+map <leader>dd <action>(ToggleDistractionFreeMode)
+map <leader>dz <action>(ToggleZenMode)
+map <leader>df <action>(ToggleFullScreen)
+
+" Actions
+map <leader>am <action>(ShowIntentionActions)
+map <leader><leader> <action>(SearchEverywhere)
+
+" File navigation
+map <leader>ff <action>(GotoFile)
+map <leader>fr <action>(RecentFiles)
+map <leader>/ <Action>(FindInPath)
+map <leader>rf <Action>(RecentFiles)
+map <leader>fl <action>(RecentLocations)
+map <leader>fs <action>(NewScratchFile)
+
+" Close active tab
+map <leader>q <action>(CloseContent)
+
+" Refactoring
+map <leader>rw <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Go to code
+nmap gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap gr <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <C-o> <Action>(Back)
+nmap <leader>gb <Action>(Forward)
+
+" Git windows
+map <leader>gc <Action>(CheckinProject)
+map <leader>gs <Action>(ActivateVersionControlToolWindow)
+map <leader>gb <Action>(Git.Branches)
+
+" Errors
+map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
+map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
+

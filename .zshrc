@@ -116,6 +116,8 @@ alias lsf="lsa | fzf"
 alias nv=nvim
 alias lg=lazygit
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+alias lampp='sudo /opt/lampp/lampp start'
+alias androids='/home/saurav/android-studio/bin/studio'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -132,12 +134,13 @@ export PATH="$HOME/.cargo/bin/:$PATH"
 export PATH="$HOME/gems/bin:$PATH"
 
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^l "sudo /opt/lampp/lampp start\n"
 
 # [Key mappings]
 # maps the home key on keychron to delete
 xmodmap -e "keycode 110 = Delete NoSymbol Delete"
 # maps the ctrl to alt on keychron
-xmodmap -e "keycode"
+# xmodmap -e "keycode"
 
 alias bat=batcat
 alias inv='nvim $(find . | fzf --preview="batcat --color=always {}")'
@@ -160,3 +163,5 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# the better cd
+eval "$(zoxide init --cmd cd zsh)"
