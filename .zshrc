@@ -83,6 +83,8 @@ plugins=(
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
+  fast-syntax-highlighting
+  zsh-autocomplete
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -134,6 +136,7 @@ export GEM_HOME="$HOME/gems"
 export PATH="$HOME/.cargo/bin/:$PATH"
 export PATH="$HOME/gems/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # laravel composer
 export PATH="/home/saurav/.config/composer/vendor/bin:$PATH"
