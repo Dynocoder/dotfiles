@@ -5,7 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-bindkey -v
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -143,8 +142,12 @@ export PATH="$HOME/.local/bin:$PATH"
 # laravel composer
 export PATH="/home/saurav/.config/composer/vendor/bin:$PATH"
 
+# bindkey -s ^l "sudo /opt/lampp/lampp start\n"
+
+bindkey -v
+bindkey -r '^L'
+bindkey '^L' autosuggest-accept
 bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s ^l "sudo /opt/lampp/lampp start\n"
 
 # [Key mappings]
 # maps the home key on keychron to delete
@@ -156,7 +159,7 @@ alias bat=batcat
 alias inv='nvim $(find . | fzf --preview="batcat --color=always {}")'
 
 # Shortcut to open intellij I[d]ea
-bindkey -s ^n "~/intellij-idea/bin/idea.sh\n"
+# bindkey -s ^n "~/intellij-idea/bin/idea.sh\n"
 export PATH="/home/saurav/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/saurav/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
