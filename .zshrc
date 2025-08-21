@@ -116,7 +116,8 @@ alias lsf="lsa | fzf"
 alias nv=nvim
 alias lg=lazygit
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
-alias lampp='sudo /opt/lampp/lampp start'
+alias sa='sail artisan'
+alias lampp='sudo /opt/lampp/lampp'
 alias androids='/home/saurav/android-studio/bin/studio'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -132,6 +133,10 @@ export LS_COLORS="rs=0:no=00:mi=00:mh=00:ln=01;36:or=01;31:di=01;34:ow=04;01;34:
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/.cargo/bin/:$PATH"
 export PATH="$HOME/gems/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+# laravel composer
+export PATH="/home/saurav/.config/composer/vendor/bin:$PATH"
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^l "sudo /opt/lampp/lampp start\n"
@@ -165,3 +170,5 @@ function y() {
 
 # the better cd
 eval "$(zoxide init --cmd cd zsh)"
+export PATH="$HOME/.spin/bin:$PATH"
+

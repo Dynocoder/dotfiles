@@ -147,6 +147,7 @@ inoremap <C-k> <Action>(PopupMenu-selectPrev)
 "" ========================================================
 
 
+nmap <leader>1 :action GotoHarpoon2<cr>
 nmap <leader>2 :action GotoHarpoon2<cr>
 nmap <leader>3 :action GotoHarpoon3<cr>
 nmap <leader>4 :action GotoHarpoon4<cr>
