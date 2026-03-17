@@ -1,4 +1,5 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -11,8 +12,8 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
+# export PATH="$HOME/.tmuxifier/bin:$PATH"
+# eval "$(tmuxifier init -)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -180,3 +181,19 @@ function y() {
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="$HOME/.spin/bin:$PATH"
 
+
+# opencode
+export PATH=/home/saurav/.opencode/bin:$PATH
+
+. "$HOME/.local/share/../bin/env"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# bun completions
+[ -s "/home/saurav/.bun/_bun" ] && source "/home/saurav/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

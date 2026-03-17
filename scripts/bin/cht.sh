@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-languages=$(echo "python c cpp typescript lua javascript" | tr " " "\n")
+languages=$(echo "python c cpp typescript lua javascript go" | tr " " "\n")
 core_utils=$(echo "find xargs awk sed" | tr " " "\n")
 selected=$(echo -e "$languages\n$core_utils" | fzf)
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # finding every DIRECTORY (type d) that is no less and no more than 1 deep from ~, ~/Coding and passing its output to fzf (which will then pass it to std out)
-session=$(find ~ ~/Coding -mindepth 1 -maxdepth 1 -type d | fzf)
+session=$(find ~ ~/coding -mindepth 1 -maxdepth 1 -type d | fzf)
 
 # get the basename from the path, replace any . with a _ (because tmux can't have . in session names)
 session_name=$(basename "$session" | tr . _)
